@@ -12,4 +12,23 @@ public class TestProtected extends ModificatoriAcces{
         testProtected.stringProtected();
         testProtected.stringPublic();
     }
+
+    /**
+     * Descrii metoda, comportament
+     * @return
+     */
+    @Override
+    @Deprecated
+    public String stringPublic () {
+        return "publicOverridden";
+    }
+
+
+    public String stringPublic(String test) {
+        return stringPublic() + test;
+    }
+
+    public String stringPublic(String test, String test2) {
+        return stringPublic(test) + test2;
+    }
 }
