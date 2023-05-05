@@ -1,0 +1,30 @@
+
+Va rog sa folositi o versiune cat mai recenta a driverului de JDBC. O luati din IntelliJ din Maven - cea mai recenta.
+
+Daca nu reusiti sa va conectati cu succes, faceti ce scrie aici: https://stackoverflow.com/questions/50093144/mysql-8-0-client-does-not-support-authentication-protocol-requested-by-server
+
+
+create database barbie_db;
+
+CREATE TABLE `studenti` (
+ `ID` int NOT NULL AUTO_INCREMENT,
+ `NUME` varchar(45) DEFAULT NULL,
+ `PRENUME` varchar(45) DEFAULT NULL,
+ `DATA_NASTERII` date DEFAULT NULL,
+ `MEDIA` decimal(2,2) DEFAULT NULL,
+ PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+USE `barbie_db`;
+DROP procedure IF EXISTS `GelAllStudents`;
+
+
+
+DELIMITER $$
+USE `barbie_db`$$
+CREATE PROCEDURE `GelAllStudents` ()
+BEGIN
+ select * from STUDENTI;
+END$$
+
+DELIMITER ;
