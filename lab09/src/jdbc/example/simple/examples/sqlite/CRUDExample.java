@@ -1,4 +1,4 @@
-package jdbc.example.simple.examples;
+package jdbc.example.simple.examples.sqlite;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -47,14 +47,6 @@ public class CRUDExample {
                 Student student = new Student(rs.getInt("ID"), rs.getString("NUME"), rs.getString("PRENUME"), rs.getDouble("MEDIA"), rs.getDate("DATA_NASTERII"));
                 studenti.add(student);
             }
-
-            // Calling a stored procedure - currently not available in SQLite
-            CallableStatement callableStatement = conn.prepareCall("call pachet.procedura_stocata(?,?,?)");
-            callableStatement.setInt(1, 3);
-            callableStatement.setString(2, "Paramentru 2");
-            callableStatement.setBoolean(3, true);
-
-            callableStatement.execute();
 
             conn.commit();
 
